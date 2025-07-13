@@ -9117,7 +9117,7 @@
 }
 
 .max-h-full {
-    max-height: 100%;
+    max-height: calc(100% - 56px);
 }
 
 .min-w-full {
@@ -10143,4 +10143,16 @@
 
 .rounded_pill {
     border-radius: 5rem;
+}
+
+.z-1 {
+    z-index: -1;
+}
+
+.z-2 {
+    z-index: 100;
+}
+
+.top-56 {
+    top: 56px;
 }
