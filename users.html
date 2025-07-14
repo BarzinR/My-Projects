@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/util.css">
+    <link rel="icon" href="css/images/codeyad.ico">
     <title>user manager</title>
 </head>
 
-<body>
+<body dir="rtl">
 
     <!-- navbar sevtion___________________________________start___________________________________ -->
 
     <nav class="grey darken-4 z-depth-5 top-nav">
         <div class="nav-wrapper">
-            <a href="#!" class=" light-blue-text darken-4 hide-on-med-and-up">Users</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons  light-blue-text darken-4">menu</i></a>
-            <ul class="hide-on-med-and-down flex-m">
+            <a href="#!" class=" light-blue-text darken-4 hide-on-med-and-up">مدیریت کاربران</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons  light-blue-text darken-4">menu</i></a>
+            <ul class="hide-on-med-and-down flex-m dis-flex">
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">Javascript</a></li>
@@ -40,8 +42,8 @@
                 <a href="#email"><span class="white-text email">barzinbagherian@gmail.com</span></a>
             </div>
         </li>
-        <li><a href="https://w3schools.com" target="_blank"><i class="material-icons">insert_link</i>https://w3schools.com</a></li>
-        <li><a href="https://codeyad.com" target="_blank"><i class="material-icons">insert_link</i>https://codeyad.com</a></li>
+        <li><a href="https://w3schools.com" target="_blank"><i class="material-icons right side_nav_link_icon">insert_link</i>https://w3schools.com</a></li>
+        <li><a href="https://codeyad.com" target="_blank"><i class="material-icons right side_nav_link_icon">insert_link</i>https://codeyad.com</a></li>
         <li>
             <div class="divider"></div>
         </li>
@@ -52,11 +54,11 @@
     </ul>
 
 
-    <section id="top_actions_section" class="row p-t-20 m-b-0">
+    <section id="top_actions_section" class="row p-t-20 m-b-0 container">
         <!-- ___________________ add button ___________________ -->
 
         <div class="p-r-20 p-l-20 p-t-20 col s12 m3 l2">
-            <button class="waves-effect wave-light btn  blue darken-2 p-l-30 p-r-30 w-full rounded_pill flex-c">
+            <button class="waves-effect wave-light btn  blue darken-2 p-l-30 p-r-30 w-full rounded_pill flex-c" id="add_user">
                 <i class="material-icons m-r-10">add</i>
                 Add user
             </button>
@@ -139,6 +141,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>User name</th>
+                        <th>Adress</th>
                         <th>Email</th>
                         <th>Actions</th>
                     </tr>
@@ -148,6 +151,7 @@
                         <td>1</td>
                         <td>Barzin</td>
                         <td>BarzinR</td>
+                        <td>Iran-Mashhad</td>
                         <td>barzin@gmail.com</td>
                         <td>
                             <i class="material-icons m-l-5 m-r-5 red-text">delete_forever</i>
@@ -158,6 +162,7 @@
                         <td>1</td>
                         <td>Barzin</td>
                         <td>BarzinR</td>
+                        <td>Iran-Mashhad</td>
                         <td>barzin@gmail.com</td>
                         <td>
                             <i class="material-icons m-l-5 m-r-5 red-text">delete_forever</i>
@@ -168,6 +173,7 @@
                         <td>1</td>
                         <td>Barzin</td>
                         <td>BarzinR</td>
+                        <td>Iran-Mashhad</td>
                         <td>barzin@gmail.com</td>
                         <td>
                             <i class="material-icons m-l-5 m-r-5 red-text">delete_forever</i>
@@ -178,14 +184,58 @@
             </table>
         </div>
 
+        <div class="pagination_container container p-l-9 p-r-9 p-t-15 p-b-10  flex-sb-m pos-fixed left-0 right-0 bottom-0 z-depth-6 rounded-top-30">
+            <div class="pagination_item_count flex-l p-l-10 flex-l-m">
+                showing
+                <span class="m-l-5 m-r-5 max-w-50 m-t-6">
+                    <input type="number" class="blue-text darken-2 no-border center-align m-b-0" value="10" min="0" max="100">
+                </span> of
+                <span class="blue-text darken-2 m-l-5 m-r-5">100</span>
+            </div>
+
+            <div class="pagination_buttons">
+                <i class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-5 p-b-3 waves-effect waves-dark white-text rounded_pill">keyboard_arrow_right</i>
+                <i class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-5 p-b-3 waves-effect waves-dark white-text rounded_pill">keyboard_arrow_left</i>
+            </div>
+
+        </div>
+
+
+
     </section>
+
+    <div class="add_user_modal_back dis-none" id="model_back"></div>
+    <div class="add_user_modal container" id="model">
+        <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
+            <h5>
+                <i class="material-icons m-r-10 m-l-10 pos-relative top-4">person_add</i> Add user
+            </h5>
+
+            <form>
+                <div class="input-field col s12">
+                    <input id="name" type="text" class="validate">
+                    <label for="name">name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="user_name" class="validate" />
+                    <label for="user_name">user name : </label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="email" id="email" class="validate" />
+                    <label for="email">E-mail : </label>
+                </div>
+
+                <button type="button" class="waves-effect waves-dark btn blue darken-2 m-t-2 m-b-20 w-full max-w-250 rounded_pill" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- user sevtion___________________________________end___________________________________ -->
 
 
 
 
-    <script src="js/index.js "></script>
+    <script src=" js/index.js "></script>
     <script src="js/user.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js "></script>
 </body>
