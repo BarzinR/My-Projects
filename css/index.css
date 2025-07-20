@@ -66,3 +66,13 @@ table.highlight>tbody>tr:hover {
     margin-right: 0% !important;
     margin-left: 32px !important;
 }
+
+.showcase {
+    z-index: 999;
+}
+
+.user_list_section {
+    height: calc(100vh - 300px);
+    overflow: auto;
+    z-index: 1;
+}
